@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   Carousel,
   CarouselContent,
@@ -11,8 +12,6 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Play, Pause } from 'lucide-react';
-import useEmblaCarousel from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const HeroCarousel = () => {
@@ -22,13 +21,6 @@ const HeroCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [progress, setProgress] = useState(0);
   const [api, setApi] = useState<any>(null);
-
-  const autoplayPlugin = Autoplay({
-    delay: 5000,
-    stopOnInteraction: false,
-    stopOnMouseEnter: true,
-    // rootNode: (emblaRoot) => emblaRoot.parentElement, // 先注释掉
-  });
 
   const slides = [
     {
@@ -69,6 +61,17 @@ const HeroCarousel = () => {
     }
   ];
 
+  // Auto advance slides
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (api) {
+        api.scrollNext();
+      }
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [api]);
+
   // 监听轮播状态变化
   useEffect(() => {
     if (!api) return;
@@ -102,12 +105,6 @@ const HeroCarousel = () => {
     setProgress(0);
   }, [currentSlide]);
 
-  useEffect(() => {
-    if (api && api.plugins && api.plugins().autoplay) {
-      api.plugins().autoplay.play();
-    }
-  }, [api]);
-
   const handleVideoPlay = (slideIndex: number, videoElement: HTMLVideoElement) => {
     if (playingVideo === slideIndex) {
       videoElement.pause();
@@ -124,7 +121,6 @@ const HeroCarousel = () => {
         <Carousel
           className="w-full h-full"
           setApi={setApi}
-          plugins={[autoplayPlugin]}
           opts={{
             align: "start",
             loop: true,
@@ -231,23 +227,29 @@ const HeroCarousel = () => {
             ))}
           </CarouselContent>
         </Carousel>
-        {/* 指示点依然放在图片区域底部 */}
-        {isMobile ? (
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => api?.scrollTo(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentSlide 
-                    ? 'bg-white scale-125' 
-                    : 'bg-white/50 hover:bg-white/70'
-                }`}
+        {/* Mobile progress bar */}
+        {isMobile && (
+          <div className="absolute bottom-0 left-0 right-0 z-10">
+            <div className="h-1 bg-gradient-to-r from-transparent via-corporate-blue to-transparent relative">
+              <div 
+                className="h-full bg-corporate-blue-light transition-all duration-100 ease-linear"
+                style={{ width: `${progress}%` }}
               />
-            ))}
+            </div>
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3">
+              {slides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => api?.scrollTo(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentSlide 
+                      ? 'bg-white scale-125' 
+                      : 'bg-white/50 hover:bg-white/70'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
-        ) : (
-          null
         )}
       </div>
     </section>
