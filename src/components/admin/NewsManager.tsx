@@ -9,9 +9,9 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
-import { Plus, Edit, Trash2, Paperclip } from 'lucide-react';
-import FileUpload from './FileUpload';
-import AttachmentList from './AttachmentList';
+import { Plus, Edit, Trash2, Paperclip, Image } from 'lucide-react';
+import ImageUpload from './ImageUpload';
+import ImageGallery from './ImageGallery';
 
 interface NewsItem {
   id: string;
@@ -24,7 +24,7 @@ interface NewsItem {
   updated_at: string;
 }
 
-interface Attachment {
+interface ImageAttachment {
   id: string;
   file_name: string;
   file_path: string;
@@ -38,7 +38,7 @@ const NewsManager = () => {
   const [loading, setLoading] = useState(true);
   const [editingNews, setEditingNews] = useState<NewsItem | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [attachments, setAttachments] = useState<Attachment[]>([]);
+  const [images, setImages] = useState<ImageAttachment[]>([]);
   const [formData, setFormData] = useState({
     title: '',
     content: '',
@@ -72,19 +72,20 @@ const NewsManager = () => {
     }
   };
 
-  const fetchAttachments = async (newsId: string) => {
+  const fetchImages = async (newsId: string) => {
     try {
       const { data, error } = await supabase
         .from('news_attachments')
         .select('*')
         .eq('news_id', newsId)
+        .or('file_type.eq.image/jpeg,file_type.eq.image/png,file_type.eq.image/gif,file_type.eq.image/webp')
         .order('created_at', { ascending: false });
 
       if (error) throw error;
-      setAttachments(data || []);
+      setImages(data || []);
     } catch (error) {
-      console.error('获取附件失败:', error);
-      setAttachments([]);
+      console.error('获取图片失败:', error);
+      setImages([]);
     }
   };
 
@@ -125,23 +126,23 @@ const NewsManager = () => {
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm('确定要删除这条新闻吗？相关附件也会被删除。')) return;
+    if (!confirm('确定要删除这条新闻吗？相关图片也会被删除。')) return;
 
     try {
-      // 先删除相关附件
-      const { data: attachmentsData } = await supabase
+      // 先删除相关图片
+      const { data: imagesData } = await supabase
         .from('news_attachments')
         .select('file_path')
         .eq('news_id', id);
 
-      if (attachmentsData && attachmentsData.length > 0) {
-        const filePaths = attachmentsData.map(att => att.file_path);
+      if (imagesData && imagesData.length > 0) {
+        const filePaths = imagesData.map(img => img.file_path);
         await supabase.storage
           .from('news-attachments')
           .remove(filePaths);
       }
 
-      // 删除新闻（附件记录会因为外键约束自动删除）
+      // 删除新闻（图片记录会因为外键约束自动删除）
       const { error } = await supabase
         .from('news')
         .delete()
@@ -168,7 +169,7 @@ const NewsManager = () => {
       published: false
     });
     setEditingNews(null);
-    setAttachments([]);
+    setImages([]);
   };
 
   const openEditDialog = async (newsItem: NewsItem) => {
@@ -180,7 +181,7 @@ const NewsManager = () => {
       image_url: newsItem.image_url || '',
       published: newsItem.published
     });
-    await fetchAttachments(newsItem.id);
+    await fetchImages(newsItem.id);
     setIsDialogOpen(true);
   };
 
@@ -189,12 +190,12 @@ const NewsManager = () => {
     setIsDialogOpen(true);
   };
 
-  const handleFileUploaded = (file: any) => {
-    setAttachments(prev => [file, ...prev]);
+  const handleImageUploaded = (file: any) => {
+    setImages(prev => [file, ...prev]);
   };
 
-  const handleAttachmentDeleted = (attachmentId: string) => {
-    setAttachments(prev => prev.filter(att => att.id !== attachmentId));
+  const handleImageDeleted = (imageId: string) => {
+    setImages(prev => prev.filter(img => img.id !== imageId));
   };
 
   if (loading && news.length === 0) {
@@ -223,8 +224,8 @@ const NewsManager = () => {
               <Tabs defaultValue="content" className="w-full">
                 <TabsList className="grid w-full grid-cols-2">
                   <TabsTrigger value="content">内容信息</TabsTrigger>
-                  <TabsTrigger value="attachments" disabled={!editingNews}>
-                    附件管理 ({attachments.length})
+                  <TabsTrigger value="images" disabled={!editingNews}>
+                    图片管理 ({images.length})
                   </TabsTrigger>
                 </TabsList>
                 
@@ -281,20 +282,20 @@ const NewsManager = () => {
                   </form>
                 </TabsContent>
                 
-                <TabsContent value="attachments" className="space-y-4">
+                <TabsContent value="images" className="space-y-4">
                   {editingNews && (
                     <>
                       <div className="flex items-center justify-between">
-                        <h3 className="text-lg font-medium">附件管理</h3>
-                        <FileUpload
+                        <h3 className="text-lg font-medium">图片管理</h3>
+                        <ImageUpload
                           newsId={editingNews.id}
-                          onFileUploaded={handleFileUploaded}
+                          onImageUploaded={handleImageUploaded}
                         />
                       </div>
-                      <AttachmentList
+                      <ImageGallery
                         newsId={editingNews.id}
-                        attachments={attachments}
-                        onAttachmentDeleted={handleAttachmentDeleted}
+                        images={images}
+                        onImageDeleted={handleImageDeleted}
                       />
                     </>
                   )}
@@ -310,7 +311,7 @@ const NewsManager = () => {
             <TableRow>
               <TableHead>标题</TableHead>
               <TableHead>状态</TableHead>
-              <TableHead>附件</TableHead>
+              <TableHead>图片</TableHead>
               <TableHead>创建时间</TableHead>
               <TableHead>操作</TableHead>
             </TableRow>
@@ -327,7 +328,7 @@ const NewsManager = () => {
                   </span>
                 </TableCell>
                 <TableCell>
-                  <AttachmentCount newsId={item.id} />
+                  <ImageCount newsId={item.id} />
                 </TableCell>
                 <TableCell>
                   {new Date(item.created_at).toLocaleDateString('zh-CN')}
@@ -365,8 +366,8 @@ const NewsManager = () => {
   );
 };
 
-// 附件数量显示组件
-const AttachmentCount = ({ newsId }: { newsId: string }) => {
+// 图片数量显示组件
+const ImageCount = ({ newsId }: { newsId: string }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -374,7 +375,8 @@ const AttachmentCount = ({ newsId }: { newsId: string }) => {
       const { count } = await supabase
         .from('news_attachments')
         .select('*', { count: 'exact', head: true })
-        .eq('news_id', newsId);
+        .eq('news_id', newsId)
+        .or('file_type.eq.image/jpeg,file_type.eq.image/png,file_type.eq.image/gif,file_type.eq.image/webp');
       setCount(count || 0);
     };
     fetchCount();
@@ -384,7 +386,7 @@ const AttachmentCount = ({ newsId }: { newsId: string }) => {
 
   return (
     <div className="flex items-center gap-1 text-sm">
-      <Paperclip className="w-3 h-3" />
+      <Image className="w-3 h-3" />
       <span>{count}</span>
     </div>
   );
