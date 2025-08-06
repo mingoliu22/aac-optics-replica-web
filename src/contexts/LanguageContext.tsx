@@ -100,6 +100,23 @@ const translations = {
     'news.item2.excerpt': '我们将携最新光学产品亮相CIOE 2024，展位号A123，欢迎莅临参观。',
     'news.item3.title': '新厂房投产，产能提升30%',
     'news.item3.excerpt': '位于深圳光明的新生产基地正式投产，将大幅提升我们的产品交付能力。',
+    
+    // Hero carousel slides
+    'hero.slide1.title': '高精度光学镜头',
+    'hero.slide1.subtitle': '专业级光学镜头制造，满足各种应用需求',
+    'hero.slide1.description': '我们提供从设计到生产的完整光学镜头解决方案，确保每个产品都达到最高的质量标准。',
+    'hero.slide2.title': 'AAC 晶圆级玻璃技术',
+    'hero.slide2.subtitle': '领先的WLG晶圆级玻璃制造工艺',
+    'hero.slide2.description': '了解我们先进的晶圆级玻璃技术，为光学器件提供卓越的性能和质量保证。',
+    'hero.slide3.title': '先进光学系统',
+    'hero.slide3.subtitle': '创新技术驱动的光学系统解决方案',
+    'hero.slide3.description': '利用最新的光学技术和精密制造工艺，为客户提供高性能的光学系统产品。',
+    'hero.slide4.title': '精密光学元件',
+    'hero.slide4.subtitle': '高品质光学元件制造专家',
+    'hero.slide4.description': '专注于各类精密光学元件的研发与生产，为光学设备提供核心组件支持。',
+    'hero.slide5.title': '定制化光学解决方案',
+    'hero.slide5.subtitle': '根据客户需求提供专业定制服务',
+    'hero.slide5.description': '我们的专业团队能够根据客户的具体需求，提供从概念设计到批量生产的全方位服务。',
   },
   en: {
     // Navigation
@@ -188,6 +205,23 @@ const translations = {
     'news.item2.excerpt': 'We will showcase our latest optical products at CIOE 2024, booth A123. Welcome to visit.',
     'news.item3.title': 'New Factory in Production, Capacity Increased by 30%',
     'news.item3.excerpt': 'The new production base located in Shenzhen Guangming has officially started production, significantly improving our product delivery capability.',
+    
+    // Hero carousel slides
+    'hero.slide1.title': 'High-Precision Optical Lenses',
+    'hero.slide1.subtitle': 'Professional optical lens manufacturing meeting various application requirements',
+    'hero.slide1.description': 'We provide complete optical lens solutions from design to production, ensuring every product meets the highest quality standards.',
+    'hero.slide2.title': 'AAC Wafer-Level Glass Technology',
+    'hero.slide2.subtitle': 'Leading WLG wafer-level glass manufacturing process',
+    'hero.slide2.description': 'Learn about our advanced wafer-level glass technology, providing excellent performance and quality assurance for optical devices.',
+    'hero.slide3.title': 'Advanced Optical Systems',
+    'hero.slide3.subtitle': 'Innovation-driven optical system solutions',
+    'hero.slide3.description': 'Utilizing the latest optical technology and precision manufacturing processes to provide high-performance optical system products for customers.',
+    'hero.slide4.title': 'Precision Optical Components',
+    'hero.slide4.subtitle': 'High-quality optical component manufacturing experts',
+    'hero.slide4.description': 'Focusing on R&D and production of various precision optical components, providing core component support for optical equipment.',
+    'hero.slide5.title': 'Customized Optical Solutions',
+    'hero.slide5.subtitle': 'Professional customization services based on customer requirements',
+    'hero.slide5.description': 'Our professional team can provide comprehensive services from concept design to mass production according to customers specific needs.',
   },
   ja: {
     // Navigation

@@ -26,38 +26,38 @@ const HeroCarousel = () => {
     {
       type: 'image',
       image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=600&fit=crop',
-      title: '高精度光学镜头',
-      subtitle: '专业级光学镜头制造，满足各种应用需求',
-      description: '我们提供从设计到生产的完整光学镜头解决方案，确保每个产品都达到最高的质量标准。'
+      title: t('hero.slide1.title'),
+      subtitle: t('hero.slide1.subtitle'),
+      description: t('hero.slide1.description')
     },
     {
       type: 'video',
       video: 'https://www.aacoptics.com/wp-content/uploads/2021/04/AAC-Technologies-Wafer-Level-Glass-WLG-2021_CN_1080psub.mp4',
       poster: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=600&fit=crop',
-      title: 'AAC 晶圆级玻璃技术',
-      subtitle: '领先的WLG晶圆级玻璃制造工艺',
-      description: '了解我们先进的晶圆级玻璃技术，为光学器件提供卓越的性能和质量保证。'
+      title: t('hero.slide2.title'),
+      subtitle: t('hero.slide2.subtitle'),
+      description: t('hero.slide2.description')
     },
     {
       type: 'image',
       image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&h=600&fit=crop',
-      title: '先进光学系统',
-      subtitle: '创新技术驱动的光学系统解决方案',
-      description: '利用最新的光学技术和精密制造工艺，为客户提供高性能的光学系统产品。'
+      title: t('hero.slide3.title'),
+      subtitle: t('hero.slide3.subtitle'),
+      description: t('hero.slide3.description')
     },
     {
       type: 'image',
       image: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=1200&h=600&fit=crop',
-      title: '精密光学元件',
-      subtitle: '高品质光学元件制造专家',
-      description: '专注于各类精密光学元件的研发与生产，为光学设备提供核心组件支持。'
+      title: t('hero.slide4.title'),
+      subtitle: t('hero.slide4.subtitle'),
+      description: t('hero.slide4.description')
     },
     {
       type: 'image',
       image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=1200&h=600&fit=crop',
-      title: '定制化光学解决方案',
-      subtitle: '根据客户需求提供专业定制服务',
-      description: '我们的专业团队能够根据客户的具体需求，提供从概念设计到批量生产的全方位服务。'
+      title: t('hero.slide5.title'),
+      subtitle: t('hero.slide5.subtitle'),
+      description: t('hero.slide5.description')
     }
   ];
 
