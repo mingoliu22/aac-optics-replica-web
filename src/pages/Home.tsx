@@ -40,26 +40,26 @@ const Home = () => {
 
   const applications = [
     {
-      title: '医疗诊断设备',
-      description: '高精度光学系统用于医疗成像、内窥镜和激光手术设备',
+      title: t('applications.medical.title'),
+      description: t('applications.medical.description'),
       icon: <Eye className="w-8 h-8 md:w-12 md:h-12 text-corporate-blue" />,
       image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop'
     },
     {
-      title: '科研仪器',
-      description: '为显微镜、光谱仪等科研设备提供核心光学组件',
+      title: t('applications.research.title'),
+      description: t('applications.research.description'),
       icon: <Microscope className="w-8 h-8 md:w-12 md:h-12 text-corporate-blue" />,
       image: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&h=400&fit=crop'
     },
     {
-      title: '工业检测',
-      description: '机器视觉、激光测量等工业自动化应用',
+      title: t('applications.industrial.title'),
+      description: t('applications.industrial.description'),
       icon: <Target className="w-8 h-8 md:w-12 md:h-12 text-corporate-blue" />,
       image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=400&fit=crop'
     },
     {
-      title: '光学成像',
-      description: '专业摄影、安防监控等成像系统解决方案',
+      title: t('applications.imaging.title'),
+      description: t('applications.imaging.description'),
       icon: <Camera className="w-8 h-8 md:w-12 md:h-12 text-corporate-blue" />,
       image: 'https://images.unsplash.com/photo-1486312338219-ce68e2c54780?w=600&h=400&fit=crop'
     }
@@ -68,23 +68,23 @@ const Home = () => {
   const newsItems = [
     {
       id: 1,
-      title: 'AAC Optics获得新一轮光学技术专利',
+      title: t('news.item1.title'),
       date: '2024-03-15',
-      excerpt: '我们在激光光学器件领域取得重大技术突破，获得多项国家发明专利认证。',
+      excerpt: t('news.item1.excerpt'),
       image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop'
     },
     {
       id: 2,
-      title: '参展第十五届中国国际光电博览会',
+      title: t('news.item2.title'),
       date: '2024-03-10',
-      excerpt: '我们将携最新光学产品亮相CIOE 2024，展位号A123，欢迎莅临参观。',
+      excerpt: t('news.item2.excerpt'),
       image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=250&fit=crop'
     },
     {
       id: 3,
-      title: '新厂房投产，产能提升30%',
+      title: t('news.item3.title'),
       date: '2024-03-05',
-      excerpt: '位于深圳光明的新生产基地正式投产，将大幅提升我们的产品交付能力。',
+      excerpt: t('news.item3.excerpt'),
       image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop'
     }
   ];
@@ -99,7 +99,7 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-corporate-blue mb-4">
-              光学产品与服务
+              {t('home.products.title')}
             </h2>
             <div className="w-16 md:w-24 h-1 bg-corporate-blue-light mx-auto"></div>
           </div>
@@ -134,11 +134,11 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-corporate-blue mb-4">
-              光学应用场景
+              {t('home.applications.title')}
             </h2>
             <div className="w-16 md:w-24 h-1 bg-corporate-blue-light mx-auto mb-4 md:mb-6"></div>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-              我们的光学产品广泛应用于各个行业，为客户提供专业的解决方案
+              {t('home.applications.description')}
             </p>
           </div>
           
@@ -185,11 +185,11 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-corporate-blue mb-4">
-              新闻资讯
+              {t('home.news.title')}
             </h2>
             <div className="w-16 md:w-24 h-1 bg-corporate-blue-light mx-auto mb-4 md:mb-6"></div>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-              了解AAC Optics的最新动态和行业资讯
+              {t('home.news.description')}
             </p>
           </div>
 
@@ -213,7 +213,7 @@ const Home = () => {
                 <CardContent>
                   <p className="text-gray-600 mb-4 line-clamp-3 text-sm md:text-base">{news.excerpt}</p>
                   <Button variant="outline" className="w-full">
-                    阅读更多
+                    {t('common.readMore')}
                   </Button>
                 </CardContent>
               </Card>
@@ -224,7 +224,7 @@ const Home = () => {
             <Button variant="outline" size="lg" className="w-full sm:w-auto">
               <Link to="/news" className="flex items-center justify-center">
                 <Newspaper className="w-4 h-4 mr-2" />
-                查看更多新闻
+                {t('home.news.viewMore')}
               </Link>
             </Button>
           </div>
@@ -235,10 +235,10 @@ const Home = () => {
       <section className="py-12 md:py-16 bg-corporate-blue text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-            准备开始合作了吗？
+            {t('home.cta.title')}
           </h2>
           <p className="text-lg md:text-xl mb-6 md:mb-8 text-blue-100 px-4">
-            联系我们，获取专业的光学解决方案
+            {t('home.cta.description')}
           </p>
           <Button size="lg" className="bg-white text-corporate-blue hover:bg-blue-50 w-full sm:w-auto">
             <Link to="/contact" className="block w-full">{t('common.contactUs')}</Link>

@@ -71,6 +71,35 @@ const translations = {
     'common.learnMore': '了解更多',
     'common.viewProducts': '查看产品',
     'common.contactUs': '联系我们',
+    'common.readMore': '阅读更多',
+    
+    // Home page sections
+    'home.products.title': '光学产品与服务',
+    'home.applications.title': '光学应用场景',
+    'home.applications.description': '我们的光学产品广泛应用于各个行业，为客户提供专业的解决方案',
+    'home.news.title': '新闻资讯',
+    'home.news.description': '了解AAC Optics的最新动态和行业资讯',
+    'home.news.viewMore': '查看更多新闻',
+    'home.cta.title': '准备开始合作了吗？',
+    'home.cta.description': '联系我们，获取专业的光学解决方案',
+    
+    // Applications
+    'applications.medical.title': '医疗诊断设备',
+    'applications.medical.description': '高精度光学系统用于医疗成像、内窥镜和激光手术设备',
+    'applications.research.title': '科研仪器',
+    'applications.research.description': '为显微镜、光谱仪等科研设备提供核心光学组件',
+    'applications.industrial.title': '工业检测',
+    'applications.industrial.description': '机器视觉、激光测量等工业自动化应用',
+    'applications.imaging.title': '光学成像',
+    'applications.imaging.description': '专业摄影、安防监控等成像系统解决方案',
+    
+    // News items
+    'news.item1.title': 'AAC Optics获得新一轮光学技术专利',
+    'news.item1.excerpt': '我们在激光光学器件领域取得重大技术突破，获得多项国家发明专利认证。',
+    'news.item2.title': '参展第十五届中国国际光电博览会',
+    'news.item2.excerpt': '我们将携最新光学产品亮相CIOE 2024，展位号A123，欢迎莅临参观。',
+    'news.item3.title': '新厂房投产，产能提升30%',
+    'news.item3.excerpt': '位于深圳光明的新生产基地正式投产，将大幅提升我们的产品交付能力。',
   },
   en: {
     // Navigation
@@ -130,6 +159,35 @@ const translations = {
     'common.learnMore': 'Learn More',
     'common.viewProducts': 'View Products',
     'common.contactUs': 'Contact Us',
+    'common.readMore': 'Read More',
+    
+    // Home page sections
+    'home.products.title': 'Optical Products & Services',
+    'home.applications.title': 'Optical Applications',
+    'home.applications.description': 'Our optical products are widely used across industries, providing professional solutions for our clients',
+    'home.news.title': 'News & Updates',
+    'home.news.description': 'Stay updated with AAC Optics latest developments and industry insights',
+    'home.news.viewMore': 'View More News',
+    'home.cta.title': 'Ready to Start Cooperation?',
+    'home.cta.description': 'Contact us to get professional optical solutions',
+    
+    // Applications
+    'applications.medical.title': 'Medical Diagnostic Equipment',
+    'applications.medical.description': 'High-precision optical systems for medical imaging, endoscopy and laser surgery equipment',
+    'applications.research.title': 'Scientific Instruments',
+    'applications.research.description': 'Providing core optical components for microscopes, spectrometers and other research equipment',
+    'applications.industrial.title': 'Industrial Inspection',
+    'applications.industrial.description': 'Machine vision, laser measurement and other industrial automation applications',
+    'applications.imaging.title': 'Optical Imaging',
+    'applications.imaging.description': 'Professional photography, security monitoring and other imaging system solutions',
+    
+    // News items
+    'news.item1.title': 'AAC Optics Acquires New Round of Optical Technology Patents',
+    'news.item1.excerpt': 'We have achieved major technological breakthroughs in laser optical devices and obtained multiple national invention patent certifications.',
+    'news.item2.title': 'Participating in the 15th China International Optoelectronic Expo',
+    'news.item2.excerpt': 'We will showcase our latest optical products at CIOE 2024, booth A123. Welcome to visit.',
+    'news.item3.title': 'New Factory in Production, Capacity Increased by 30%',
+    'news.item3.excerpt': 'The new production base located in Shenzhen Guangming has officially started production, significantly improving our product delivery capability.',
   },
   ja: {
     // Navigation
