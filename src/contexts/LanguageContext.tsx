@@ -18,9 +18,10 @@ const translations = {
     'nav.home': '首页',
     'nav.products': '产品系列',
     'nav.about': '关于我们',
-    'nav.news': '新闻中心',
     'nav.contact': '联系我们',
+    'nav.careers': '人才招聘',
     'nav.sitemap': '网站地图',
+    'nav.news': '新闻中心',
     'nav.search': '搜索',
     'nav.searchPlaceholder': '搜索产品...',
     
@@ -61,6 +62,10 @@ const translations = {
     'contact.phone': '电话',
     'contact.email': '邮箱',
     'contact.getInTouch': '联系方式',
+    'contact.contactUs': '联系我们',
+    'contact.emailUs': '发邮件给我们',
+    'contact.callback': '电话回访',
+    'contact.call': '打电话给我们',
     
     // News
     'news.title': '新闻中心',
@@ -123,9 +128,10 @@ const translations = {
     'nav.home': 'Home',
     'nav.products': 'Products',
     'nav.about': 'About Us',
-    'nav.news': 'News',
     'nav.contact': 'Contact',
+    'nav.careers': 'Careers',
     'nav.sitemap': 'Sitemap',
+    'nav.news': 'News',
     'nav.search': 'Search',
     'nav.searchPlaceholder': 'Search products...',
     
@@ -166,6 +172,10 @@ const translations = {
     'contact.phone': 'Phone',
     'contact.email': 'Email',
     'contact.getInTouch': 'Get In Touch',
+    'contact.contactUs': 'Contact Us',
+    'contact.emailUs': 'Email Us',
+    'contact.callback': 'Call Back',
+    'contact.call': 'Call Us',
     
     // News
     'news.title': 'News Center',

@@ -48,12 +48,12 @@ const Navbar = ({ isFloating = false }: NavbarProps) => {
       label: t('nav.about'), 
       type: 'dropdown',
       items: [
-        { path: '/about', label: '公司简介' },
-        { path: '/contact', label: '联系我们' },
-        { path: '/sitemap', label: '网站地图' }
+        { path: '/about', label: t('nav.about') },
+        { path: '/contact', label: t('nav.contact') },
+        { path: '/sitemap', label: t('nav.sitemap') }
       ]
     },
-    { path: '/careers', label: '人才招聘', type: 'link' },
+    { path: '/careers', label: t('nav.careers'), type: 'link' },
     { path: '/news', label: t('nav.news'), type: 'link' },
   ];
 
