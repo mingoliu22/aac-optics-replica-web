@@ -7,33 +7,33 @@ const About = () => {
   const { t } = useLanguage();
 
   const milestones = [
-    { year: '2010', event: '公司成立，专注光学器件研发' },
-    { year: '2013', event: '获得ISO9001质量认证' },
-    { year: '2016', event: '推出第一代高精度光学系统' },
-    { year: '2019', event: '成立国际业务部，拓展海外市场' },
-    { year: '2022', event: '获得多项光学技术专利' },
-    { year: '2024', event: '成为行业领先的光学解决方案提供商' }
+    { year: '2010', event: t('about.milestones.2010') },
+    { year: '2013', event: t('about.milestones.2013') },
+    { year: '2016', event: t('about.milestones.2016') },
+    { year: '2019', event: t('about.milestones.2019') },
+    { year: '2022', event: t('about.milestones.2022') },
+    { year: '2024', event: t('about.milestones.2024') }
   ];
 
   const values = [
     {
-      title: '质量第一',
-      description: '严格的质量控制体系，确保每一件产品都达到最高标准',
+      title: t('about.values.quality.title'),
+      description: t('about.values.quality.description'),
       icon: '🎯'
     },
     {
-      title: '技术创新',
-      description: '持续投入研发，推动光学技术的发展和应用',
+      title: t('about.values.innovation.title'),
+      description: t('about.values.innovation.description'),
       icon: '🔬'
     },
     {
-      title: '客户至上',
-      description: '以客户需求为导向，提供专业的解决方案和服务',
+      title: t('about.values.customer.title'),
+      description: t('about.values.customer.description'),
       icon: '🤝'
     },
     {
-      title: '诚信经营',
-      description: '诚实守信，建立长期稳定的合作关系',
+      title: t('about.values.integrity.title'),
+      description: t('about.values.integrity.description'),
       icon: '💎'
     }
   ];
@@ -57,13 +57,10 @@ const About = () => {
                 {t('about.company')}
               </h2>
               <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                AAC Optics成立于2010年，是一家专业从事光学器件研发、生产和销售的高新技术企业。
-                我们拥有先进的生产设备和专业的技术团队，致力于为客户提供高品质的光学产品和解决方案。
+                {t('about.companyIntro1')}
               </p>
               <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                经过多年的发展，公司已成为国内外知名的光学器件供应商，产品广泛应用于激光加工、
-                精密测量、科学研究等领域。我们始终坚持"质量第一、客户至上"的经营理念，
-                为客户创造更大的价值。
+                {t('about.companyIntro2')}
               </p>
             </div>
             <div className="animate-scale-in">
@@ -107,7 +104,7 @@ const About = () => {
         <section className="mb-16">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-corporate-blue mb-4">
-              企业价值观
+              {t('about.valuesTitle')}
             </h2>
             <div className="w-24 h-1 bg-corporate-blue-light mx-auto"></div>
           </div>
@@ -131,7 +128,7 @@ const About = () => {
         <section className="mb-16">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-corporate-blue mb-4">
-              发展历程
+              {t('about.timelineTitle')}
             </h2>
             <div className="w-24 h-1 bg-corporate-blue-light mx-auto"></div>
           </div>
@@ -160,16 +157,16 @@ const About = () => {
 
         {/* Contact CTA */}
         <section className="bg-corporate-blue rounded-lg p-8 text-center text-white">
-          <h3 className="text-2xl font-bold mb-4">了解更多关于我们</h3>
+          <h3 className="text-2xl font-bold mb-4">{t('about.ctaTitle')}</h3>
           <p className="text-blue-100 mb-6">
-            欢迎联系我们，了解更多关于AAC Optics的信息和我们的光学解决方案
+            {t('about.ctaDescription')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-white text-corporate-blue px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
-              联系我们
+              {t('about.contactUs')}
             </button>
             <button className="border border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-corporate-blue transition-colors">
-              下载公司简介
+              {t('about.downloadBrochure')}
             </button>
           </div>
         </section>

@@ -20,30 +20,30 @@ const Products = () => {
   const categories = [
     { 
       id: 'all', 
-      name: '全部产品',
-      title: '产品系列',
-      description: '我们提供全系列的光学产品，从基础器件到完整系统解决方案',
+      name: t('products.categories.all'),
+      title: t('products.categories.allTitle'),
+      description: t('products.categories.allDesc'),
       background: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=400&fit=crop'
     },
     { 
       id: 'optics', 
-      name: '光学器件',
-      title: '光学器件',
-      description: '高精度光学透镜、反射镜、棱镜等核心光学器件，为您的光学系统提供基础支撑',
+      name: t('products.categories.optics'),
+      title: t('products.categories.opticsTitle'),
+      description: t('products.categories.opticsDesc'),
       background: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&h=400&fit=crop'
     },
     { 
       id: 'systems', 
-      name: '光学系统',
-      title: '光学系统',
-      description: '完整的光学系统解决方案，包含成像系统、激光测距系统等专业设备',
+      name: t('products.categories.systems'),
+      title: t('products.categories.systemsTitle'),
+      description: t('products.categories.systemsDesc'),
       background: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&h=400&fit=crop'
     },
     { 
       id: 'components', 
-      name: '光学组件',
-      title: '光学组件',
-      description: '各类专业光学组件，包含光纤耦合器、光学棱镜等精密配件',
+      name: t('products.categories.components'),
+      title: t('products.categories.componentsTitle'),
+      description: t('products.categories.componentsDesc'),
       background: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=1200&h=400&fit=crop'
     }
   ];
@@ -51,51 +51,51 @@ const Products = () => {
   const products = [
     {
       id: 1,
-      name: '高精度光学透镜',
+      name: t('products.items.lens.name'),
       category: 'optics',
-      description: '采用先进工艺制造的高精度光学透镜，适用于各种光学系统',
+      description: t('products.items.lens.description'),
       image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop',
-      specifications: ['直径: 10-200mm', '精度: λ/10', '镀膜: 可定制']
+      specifications: [t('products.items.lens.spec1'), t('products.items.lens.spec2'), t('products.items.lens.spec3')]
     },
     {
       id: 2,
-      name: '激光反射镜',
+      name: t('products.items.mirror.name'),
       category: 'optics',
-      description: '高反射率激光反射镜，适用于激光加工和测量系统',
+      description: t('products.items.mirror.description'),
       image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop',
-      specifications: ['反射率: >99.5%', '损伤阈值: 高', '尺寸: 可定制']
+      specifications: [t('products.items.mirror.spec1'), t('products.items.mirror.spec2'), t('products.items.mirror.spec3')]
     },
     {
       id: 3,
-      name: '成像光学系统',
+      name: t('products.items.imaging.name'),
       category: 'systems',
-      description: '完整的成像光学系统解决方案，包含镜头组和控制系统',
+      description: t('products.items.imaging.description'),
       image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&h=400&fit=crop',
-      specifications: ['分辨率: 4K+', '焦距: 可调', '接口: 标准化']
+      specifications: [t('products.items.imaging.spec1'), t('products.items.imaging.spec2'), t('products.items.imaging.spec3')]
     },
     {
       id: 4,
-      name: '光学棱镜',
+      name: t('products.items.prism.name'),
       category: 'components',
-      description: '各类光学棱镜，用于光路转换和光谱分析',
+      description: t('products.items.prism.description'),
       image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=600&h=400&fit=crop',
-      specifications: ['材质: K9/石英', '精度: 高精度', '镀膜: 可选']
+      specifications: [t('products.items.prism.spec1'), t('products.items.prism.spec2'), t('products.items.prism.spec3')]
     },
     {
       id: 5,
-      name: '光纤耦合器',
+      name: t('products.items.coupler.name'),
       category: 'components',
-      description: '高效光纤耦合器，确保光信号的稳定传输',
+      description: t('products.items.coupler.description'),
       image: 'https://images.unsplash.com/photo-1500673922987-e212871fec22?w=600&h=400&fit=crop',
-      specifications: ['插损: <0.5dB', '回损: >50dB', '工作温度: -40~+85°C']
+      specifications: [t('products.items.coupler.spec1'), t('products.items.coupler.spec2'), t('products.items.coupler.spec3')]
     },
     {
       id: 6,
-      name: '激光测距系统',
+      name: t('products.items.ranging.name'),
       category: 'systems',
-      description: '高精度激光测距系统，适用于工业测量和自动化',
+      description: t('products.items.ranging.description'),
       image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200&h=400&fit=crop',
-      specifications: ['测量范围: 0.1-100m', '精度: ±1mm', '激光等级: Class 2']
+      specifications: [t('products.items.ranging.spec1'), t('products.items.ranging.spec2'), t('products.items.ranging.spec3')]
     }
   ];
 
@@ -160,7 +160,7 @@ const Products = () => {
                   <p className="text-gray-600 mb-4">{product.description}</p>
                   
                   <div className="mb-4">
-                    <h4 className="font-semibold text-sm text-corporate-blue mb-2">主要规格：</h4>
+                    <h4 className="font-semibold text-sm text-corporate-blue mb-2">{t('products.specifications')}：</h4>
                     <ul className="text-sm text-gray-600 space-y-1">
                       {product.specifications.map((spec, i) => (
                         <li key={i} className="flex items-center">
@@ -173,10 +173,10 @@ const Products = () => {
                   
                   <div className="flex gap-2">
                     <Button variant="outline" className="flex-1">
-                      查看详情
+                      {t('products.viewDetails')}
                     </Button>
                     <Button className="flex-1">
-                      询价
+                      {t('products.inquiry')}
                     </Button>
                   </div>
                 </CardContent>
@@ -186,12 +186,12 @@ const Products = () => {
 
           {/* Contact CTA */}
           <div className="mt-16 bg-corporate-blue rounded-lg p-8 text-center text-white">
-            <h3 className="text-2xl font-bold mb-4">需要定制产品？</h3>
+            <h3 className="text-2xl font-bold mb-4">{t('products.customTitle')}</h3>
             <p className="text-blue-100 mb-6">
-              我们的工程师团队可以根据您的具体需求设计和制造专业的光学产品
+              {t('products.customDesc')}
             </p>
             <Button size="lg" className="bg-white text-corporate-blue hover:bg-blue-50">
-              联系工程师
+              {t('products.contactEngineer')}
             </Button>
           </div>
         </div>

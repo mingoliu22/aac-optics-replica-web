@@ -38,8 +38,8 @@ const News = () => {
       setNews(data || []);
     } catch (error) {
       toast({
-        title: "获取新闻失败",
-        description: "请稍后重试",
+        title: t('news.fetchError'),
+        description: t('news.tryAgain'),
         variant: "destructive",
       });
     } finally {
@@ -120,7 +120,7 @@ const News = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="text-lg">加载中...</div>
+        <div className="text-lg">{t('news.loading')}</div>
       </div>
     );
   }
@@ -135,7 +135,7 @@ const News = () => {
           </h1>
           <div className="w-24 h-1 bg-corporate-blue-light mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            了解AAC Optics的最新动态、产品发布和行业资讯
+            {t('news.subtitle')}
           </p>
         </div>
 
@@ -153,7 +153,7 @@ const News = () => {
               <div className="p-8 flex flex-col justify-center">
                 <div className="flex items-center mb-4">
                   <span className="bg-corporate-blue text-white px-3 py-1 rounded-full text-sm font-medium">
-                    特别报道
+                    {t('news.featured')}
                   </span>
                   <span className="text-gray-500 ml-4">{formatDate(item.created_at)}</span>
                 </div>
@@ -183,7 +183,7 @@ const News = () => {
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
                   <span className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm">
-                    公司新闻
+                    {t('news.companyNews')}
                   </span>
                   <span className="text-gray-500 text-sm">{formatDate(item.created_at)}</span>
                 </div>
@@ -204,25 +204,25 @@ const News = () => {
         {/* Empty State */}
         {news.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-500 mb-4">暂无已发布的新闻</p>
-            <p className="text-sm text-gray-400">管理员可以登录后台添加新闻内容</p>
+            <p className="text-gray-500 mb-4">{t('news.noNews')}</p>
+            <p className="text-sm text-gray-400">{t('news.adminNote')}</p>
           </div>
         )}
 
         {/* Newsletter Subscription */}
         <div className="mt-16 bg-corporate-blue rounded-lg p-8 text-center text-white">
-          <h3 className="text-2xl font-bold mb-4">订阅我们的新闻简报</h3>
+          <h3 className="text-2xl font-bold mb-4">{t('news.newsletter.title')}</h3>
           <p className="text-blue-100 mb-6">
-            第一时间获取AAC Optics的最新动态和行业资讯
+            {t('news.newsletter.description')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <input 
               type="email" 
-              placeholder="请输入您的邮箱地址"
+              placeholder={t('news.newsletter.placeholder')}
               className="flex-1 px-4 py-3 rounded-lg text-gray-900"
             />
             <Button className="bg-white text-corporate-blue hover:bg-blue-50">
-              订阅
+              {t('news.newsletter.subscribe')}
             </Button>
           </div>
         </div>
