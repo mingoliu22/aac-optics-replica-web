@@ -14,10 +14,13 @@ interface NewsItem {
   published: boolean;
   created_at: string;
   updated_at: string;
+  title_en?: string | null;
+  content_en?: string | null;
+  summary_en?: string | null;
 }
 
 const News = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
   const { toast } = useToast();
@@ -53,6 +56,21 @@ const News = () => {
       month: 'long',
       day: 'numeric'
     });
+  };
+
+  const getTitle = (item: NewsItem) => {
+    return language === 'en' ? (item.title_en || item.title) : item.title;
+  };
+
+  const getSummary = (item: NewsItem, len: number) => {
+    if (language === 'en') {
+      const src = item.summary_en || item.content_en || '';
+      if (src) return src.length > len ? src.substring(0, len) + '...' : src;
+      const zhSrc = item.summary || item.content || '';
+      return zhSrc.length > len ? zhSrc.substring(0, len) + '...' : zhSrc;
+    }
+    const src = item.summary || item.content || '';
+    return src.length > len ? src.substring(0, len) + '...' : src;
   };
 
   // 如果没有新闻数据，显示默认内容
@@ -146,7 +164,7 @@ const News = () => {
               <div className="aspect-video lg:aspect-auto overflow-hidden">
                 <img 
                   src={item.image_url || 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop'} 
-                  alt={item.title}
+                  alt={getTitle(item)}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
@@ -157,9 +175,9 @@ const News = () => {
                   </span>
                   <span className="text-gray-500 ml-4">{formatDate(item.created_at)}</span>
                 </div>
-                <h2 className="text-2xl font-bold text-corporate-blue mb-4">{item.title}</h2>
+                <h2 className="text-2xl font-bold text-corporate-blue mb-4">{getTitle(item)}</h2>
                 <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                  {item.summary || item.content?.substring(0, 200) + '...'}
+                  {getSummary(item, 200)}
                 </p>
                 <Button className="w-fit">
                   {t('news.readMore')}
@@ -176,7 +194,7 @@ const News = () => {
               <div className="aspect-video overflow-hidden rounded-t-lg">
                 <img 
                   src={item.image_url || 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop'} 
-                  alt={item.title}
+                  alt={getTitle(item)}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
@@ -187,11 +205,11 @@ const News = () => {
                   </span>
                   <span className="text-gray-500 text-sm">{formatDate(item.created_at)}</span>
                 </div>
-                <CardTitle className="text-corporate-blue line-clamp-2">{item.title}</CardTitle>
+                <CardTitle className="text-corporate-blue line-clamp-2">{getTitle(item)}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 mb-4 line-clamp-3">
-                  {item.summary || item.content?.substring(0, 150) + '...'}
+                  {getSummary(item, 150)}
                 </p>
                 <Button variant="outline" className="w-full">
                   {t('news.readMore')}

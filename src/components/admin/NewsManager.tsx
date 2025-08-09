@@ -22,6 +22,9 @@ interface NewsItem {
   published: boolean;
   created_at: string;
   updated_at: string;
+  title_en?: string | null;
+  content_en?: string | null;
+  summary_en?: string | null;
 }
 
 interface ImageAttachment {
@@ -41,8 +44,11 @@ const NewsManager = () => {
   const [images, setImages] = useState<ImageAttachment[]>([]);
   const [formData, setFormData] = useState({
     title: '',
+    title_en: '',
     content: '',
+    content_en: '',
     summary: '',
+    summary_en: '',
     image_url: '',
     published: false
   });
@@ -163,8 +169,11 @@ const NewsManager = () => {
   const resetForm = () => {
     setFormData({
       title: '',
+      title_en: '',
       content: '',
+      content_en: '',
       summary: '',
+      summary_en: '',
       image_url: '',
       published: false
     });
@@ -176,8 +185,11 @@ const NewsManager = () => {
     setEditingNews(newsItem);
     setFormData({
       title: newsItem.title,
+      title_en: newsItem.title_en || '',
       content: newsItem.content,
+      content_en: newsItem.content_en || '',
       summary: newsItem.summary || '',
+      summary_en: newsItem.summary_en || '',
       image_url: newsItem.image_url || '',
       published: newsItem.published
     });
@@ -231,22 +243,67 @@ const NewsManager = () => {
                 
                 <TabsContent value="content">
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    <div>
-                      <label className="block text-sm font-medium mb-2">标题</label>
-                      <Input
-                        value={formData.title}
-                        onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">摘要</label>
-                      <Textarea
-                        value={formData.summary}
-                        onChange={(e) => setFormData({ ...formData, summary: e.target.value })}
-                        rows={3}
-                      />
-                    </div>
+                    <Tabs defaultValue="zh" className="w-full">
+                      <TabsList className="grid w-full grid-cols-2">
+                        <TabsTrigger value="zh">中文内容</TabsTrigger>
+                        <TabsTrigger value="en">English Content</TabsTrigger>
+                      </TabsList>
+
+                      <TabsContent value="zh" className="space-y-4">
+                        <div>
+                          <label className="block text-sm font-medium mb-2">标题</label>
+                          <Input
+                            value={formData.title}
+                            onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                            required
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium mb-2">摘要</label>
+                          <Textarea
+                            value={formData.summary}
+                            onChange={(e) => setFormData({ ...formData, summary: e.target.value })}
+                            rows={3}
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium mb-2">内容</label>
+                          <Textarea
+                            value={formData.content}
+                            onChange={(e) => setFormData({ ...formData, content: e.target.value })}
+                            rows={10}
+                            required
+                          />
+                        </div>
+                      </TabsContent>
+
+                      <TabsContent value="en" className="space-y-4">
+                        <div>
+                          <label className="block text-sm font-medium mb-2">Title (EN)</label>
+                          <Input
+                            value={formData.title_en}
+                            onChange={(e) => setFormData({ ...formData, title_en: e.target.value })}
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium mb-2">Summary (EN)</label>
+                          <Textarea
+                            value={formData.summary_en}
+                            onChange={(e) => setFormData({ ...formData, summary_en: e.target.value })}
+                            rows={3}
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium mb-2">Content (EN)</label>
+                          <Textarea
+                            value={formData.content_en}
+                            onChange={(e) => setFormData({ ...formData, content_en: e.target.value })}
+                            rows={10}
+                          />
+                        </div>
+                      </TabsContent>
+                    </Tabs>
+
                     <div>
                       <label className="block text-sm font-medium mb-2">图片URL</label>
                       <Input
@@ -255,15 +312,7 @@ const NewsManager = () => {
                         placeholder="https://..."
                       />
                     </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">内容</label>
-                      <Textarea
-                        value={formData.content}
-                        onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-                        rows={10}
-                        required
-                      />
-                    </div>
+
                     <div className="flex items-center space-x-2">
                       <Switch
                         checked={formData.published}
