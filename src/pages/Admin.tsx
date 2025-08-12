@@ -7,7 +7,8 @@ import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { User } from '@supabase/supabase-js';
 import NewsManager from '@/components/admin/NewsManager';
-import { LogOut, Plus, FileText } from 'lucide-react';
+import ContactMessagesManager from '@/components/admin/ContactMessagesManager';
+import { LogOut, Plus, FileText, MessageSquare } from 'lucide-react';
 
 const Admin = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -128,6 +129,17 @@ const Admin = () => {
                     <FileText className="w-4 h-4" />
                     新闻管理
                   </button>
+                  <button
+                    onClick={() => setActiveTab('contact')}
+                    className={`w-full text-left px-4 py-2 rounded flex items-center gap-2 transition-colors ${
+                      activeTab === 'contact' 
+                        ? 'bg-corporate-blue text-white' 
+                        : 'hover:bg-gray-100'
+                    }`}
+                  >
+                    <MessageSquare className="w-4 h-4" />
+                    联系消息
+                  </button>
                 </nav>
               </CardContent>
             </Card>
@@ -135,6 +147,7 @@ const Admin = () => {
 
           <div className="lg:col-span-3">
             {activeTab === 'news' && <NewsManager />}
+            {activeTab === 'contact' && <ContactMessagesManager />}
           </div>
         </div>
       </div>
