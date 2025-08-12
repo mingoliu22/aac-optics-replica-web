@@ -56,6 +56,12 @@ const translations = {
     'about.vision': '我们的愿景',
     'about.visionDesc': '推动光学技术的发展，为人类的美好生活贡献力量。',
     
+    // Footer
+    'footer.quickLinks': '快速链接',
+    'footer.serviceSupport': '服务支持',
+    'footer.technicalSupport': '技术支持',
+    'footer.downloadCenter': '下载中心',
+    
     // Contact
     'contact.title': '联系我们',
     'contact.address': '地址',
@@ -307,6 +313,12 @@ const translations = {
     'about.vision': 'Our Vision',
     'about.visionDesc': 'Promote the development of optical technology and contribute to a better life for humanity.',
     
+    // Footer
+    'footer.quickLinks': 'Quick Links',
+    'footer.serviceSupport': 'Service Support',
+    'footer.technicalSupport': 'Technical Support',
+    'footer.downloadCenter': 'Download Center',
+    
     // Contact
     'contact.title': 'Contact Us',
     'contact.address': 'Address',
@@ -416,6 +428,12 @@ const translations = {
     'about.vision': '私たちのビジョン',
     'about.visionDesc': '光学技術の発展を推進し、人類のより良い生活に貢献すること。',
     
+    // Footer
+    'footer.quickLinks': 'クイックリンク',
+    'footer.serviceSupport': 'サービスサポート',
+    'footer.technicalSupport': 'テクニカルサポート',
+    'footer.downloadCenter': 'ダウンロードセンター',
+    
     // Contact
     'contact.title': 'お問い合わせ',
     'contact.address': '住所',
@@ -474,6 +492,12 @@ const translations = {
     'about.missionDesc': '지속적인 기술 혁신과 우수한 제품 서비스를 통해 세계를 선도하는 광학 부품 공급업체가 되는 것.',
     'about.vision': '저희의 비전',
     'about.visionDesc': '광학 기술의 발전을 촉진하고 인류의 더 나은 삶에 기여하는 것.',
+    
+    // Footer
+    'footer.quickLinks': '빠른 링크',
+    'footer.serviceSupport': '서비스 지원',
+    'footer.technicalSupport': '기술 지원',
+    'footer.downloadCenter': '다운로드 센터',
     
     // Contact
     'contact.title': '문의하기',
@@ -534,6 +558,12 @@ const translations = {
     'about.vision': 'Notre vision',
     'about.visionDesc': 'Promouvoir le développement de la technologie optique et contribuer à une meilleure vie pour l\'humanité.',
     
+    // Footer
+    'footer.quickLinks': 'Liens rapides',
+    'footer.serviceSupport': 'Support des services',
+    'footer.technicalSupport': 'Support technique',
+    'footer.downloadCenter': 'Centre de téléchargement',
+    
     // Contact
     'contact.title': 'Nous contacter',
     'contact.address': 'Adresse',
@@ -593,6 +623,12 @@ const translations = {
     'about.vision': 'Unsere Vision',
     'about.visionDesc': 'Die Entwicklung der optischen Technologie fördern und zu einem besseren Leben für die Menschheit beitragen.',
     
+    // Footer
+    'footer.quickLinks': 'Schnelllinks',
+    'footer.serviceSupport': 'Service-Unterstützung',
+    'footer.technicalSupport': 'Technischer Support',
+    'footer.downloadCenter': 'Download-Center',
+    
     // Contact
     'contact.title': 'Kontaktieren Sie uns',
     'contact.address': 'Adresse',
@@ -651,6 +687,12 @@ const translations = {
     'about.missionDesc': 'Através da inovação tecnológica contínua e serviços de produtos de qualidade, tornar-se um fornecedor líder mundial de componentes ópticos.',
     'about.vision': 'Nossa visão',
     'about.visionDesc': 'Promover o desenvolvimento da tecnologia óptica e contribuir para uma vida melhor para a humanidade.',
+    
+    // Footer
+    'footer.quickLinks': 'Links Rápidos',
+    'footer.serviceSupport': 'Suporte de Serviço',
+    'footer.technicalSupport': 'Suporte Técnico',
+    'footer.downloadCenter': 'Centro de Download',
     
     // Contact
     'contact.title': 'Entre em contato',

@@ -30,7 +30,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">快速链接</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.quickLinks')}</h3>
             <ul className="space-y-2 text-blue-100">
               <li>
                 <Link to="/" className="hover:text-white transition-colors">
@@ -57,7 +57,7 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">服务支持</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.serviceSupport')}</h3>
             <ul className="space-y-2 text-blue-100">
               <li>
                 <Link to="/contact" className="hover:text-white transition-colors">
@@ -71,12 +71,12 @@ const Footer = () => {
               </li>
               <li>
                 <a href="#" className="hover:text-white transition-colors">
-                  技术支持
+                  {t('footer.technicalSupport')}
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-white transition-colors">
-                  下载中心
+                  {t('footer.downloadCenter')}
                 </a>
               </li>
             </ul>
